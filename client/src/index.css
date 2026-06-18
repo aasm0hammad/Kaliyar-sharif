@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0a4d2e;
+  --color-primary-light: #166542;
+  --color-secondary: #c9a444;
+  --color-text-dark: #1f2937;
+  --color-text-gray: #6b7280;
+  --color-bg-light: #f9fafb;
+}
+
+@layer base {
+  .dark {
+    --color-white: #1e1e1e;
+    --color-black: #f9fafb;
+    --color-gray-50: #121212;
+    --color-gray-100: #1a1a1a;
+    --color-gray-200: #262626;
+    --color-gray-300: #404040;
+    --color-gray-400: #525252;
+    --color-gray-500: #a3a3a3;
+    --color-gray-600: #d4d4d4;
+    --color-gray-700: #e5e5e5;
+    --color-gray-800: #f5f5f5;
+    --color-gray-900: #fafafa;
+    --color-text-dark: #f3f4f6;
+    --color-text-gray: #9ca3af;
+    --color-bg-light: #111827;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-gray-50, #f8f9fa);
+  color: var(--color-gray-800, #333);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100, #f1f1f1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+/* Booking Modal Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes bounceOnce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.15); }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.animate-bounce-once {
+  animation: bounceOnce 0.6s ease forwards;
+}
